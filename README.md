@@ -28,28 +28,57 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`buu hello [FILE]`](#buu-hello-file)
+* [`buu add TEMPLATE-NAME GIT-REPO-ADDRESS`](#buu-add-template-name-git-repo-address)
+* [`buu create [FILE]`](#buu-create-file)
+* [`buu delete [FILE]`](#buu-delete-file)
 * [`buu help [COMMAND]`](#buu-help-command)
+* [`buu list`](#buu-list)
 
-## `buu hello [FILE]`
+## `buu add TEMPLATE-NAME GIT-REPO-ADDRESS`
 
 describe the command here
 
 ```
 USAGE
-  $ buu hello [FILE]
+  $ buu add TEMPLATE-NAME GIT-REPO-ADDRESS
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/add.ts](https://github.com/dedoyle/buu-cli/blob/v0.0.0/src/commands/add.ts)_
+
+## `buu create [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ buu create [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
-
-EXAMPLE
-  $ buu hello
-  hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/dedoyle/buu-cli/blob/v0.0.0/src/commands/hello.ts)_
+_See code: [src/commands/create.ts](https://github.com/dedoyle/buu-cli/blob/v0.0.0/src/commands/create.ts)_
+
+## `buu delete [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ buu delete [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/delete.ts](https://github.com/dedoyle/buu-cli/blob/v0.0.0/src/commands/delete.ts)_
 
 ## `buu help [COMMAND]`
 
@@ -67,4 +96,18 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `buu list`
+
+list all available project template
+
+```
+USAGE
+  $ buu list
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/list.ts](https://github.com/dedoyle/buu-cli/blob/v0.0.0/src/commands/list.ts)_
 <!-- commandsstop -->

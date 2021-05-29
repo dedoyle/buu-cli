@@ -11,21 +11,26 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "is-git-url": "^1.0.0",
     "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "@types/chai": "^4",
+    "@types/is-git-url": "^1.0.0",
     "@types/mocha": "^5",
-    "@types/node": "^10",
+    "@types/node": "^15.6.1",
     "chai": "^4",
     "eslint": "^5.13",
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "globby": "^10",
     "mocha": "^5",
     "nyc": "^14",
+    "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
     "ts-node": "^8",
     "typescript": "^3.3"
@@ -60,5 +65,14 @@
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "tabWidth": 2,
+    "semi": false,
+    "printWidth": 120,
+    "arrowParens": "avoid"
+  }
 }
