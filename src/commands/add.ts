@@ -5,7 +5,7 @@ import isGitUrl from 'is-git-url'
 export default class Add extends Command {
   static description = 'add a project template'
 
-  static flags = {
+  static flags: flags.Input<any> = {
     help: flags.help({ char: 'h' }),
   }
 
@@ -21,7 +21,7 @@ export default class Add extends Command {
 
     const templateConfig = readTemplate()
 
-    if (templateConfig[templateName]) {
+    if (templateConfig?.[templateName]) {
       this.warn(`template name ${templateName} has exists.`)
       return
     }
@@ -41,7 +41,7 @@ export default class Add extends Command {
       ...templateConfig,
       [templateName]: {
         github: gitRepoAddress,
-        download: realRepo,
+        repo: realRepo,
       },
     }
 

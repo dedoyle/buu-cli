@@ -4,7 +4,7 @@ import { readTemplate } from '../utils'
 export default class List extends Command {
   static description = 'list all available project template'
 
-  static flags = {
+  static flags: flags.Input<any> = {
     help: flags.help({ char: 'h' }),
   }
 

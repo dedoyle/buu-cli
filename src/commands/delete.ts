@@ -4,7 +4,7 @@ import { readTemplate, writeTemplate } from '../utils'
 export default class Delete extends Command {
   static description = 'delete a project template'
 
-  static flags = {
+  static flags: flags.Input<any> = {
     help: flags.help({ char: 'h' }),
   }
 
@@ -17,7 +17,7 @@ export default class Delete extends Command {
 
     const templateConfig = readTemplate()
 
-    if (!templateConfig[templateName]) {
+    if (!templateConfig?.[templateName]) {
       this.log(`template name ${templateName} does not exists.`)
       return
     }

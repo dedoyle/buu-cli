@@ -1,5 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import { spawnSync, execSync } from 'child_process'
 
 /**
  * format
@@ -41,5 +42,44 @@ export const readTemplate = () => {
     return JSON.parse(fs.readFileSync(configPath).toString())
   } catch (error) {
     throw error
+  }
+}
+
+export const run = (cmd: string, args: ReadonlyArray<string>) => spawnSync(cmd, args, { stdio: 'inherit' })
+
+export const clone = (repo: string, dest: string) => {
+  const cmd = run('git', ['clone', '--depth=1', repo, dest])
+
+  if (cmd.status === 0) {
+    run('rm', ['-rf', `${dest}/.git`])
+    return true
+  }
+  return false
+}
+
+export const exists = (path: string) => fs.existsSync(path)
+
+export const shouldUseYarn = () => {
+  try {
+    execSync('yarnpkg --version', { stdio: 'ignore' })
+    return true
+  } catch (error) {
+    return false
+  }
+}
+
+export const install = (appName: string) => {
+  const useYarn = shouldUseYarn()
+
+  const root = path.resolve(appName)
+
+  if (!exists(`${root}/package.json`)) {
+    return
+  }
+
+  if (useYarn) {
+    run('yarn', ['install', '--cwd', root])
+  } else {
+    run('npm', ['install', '--prefix', root])
   }
 }
